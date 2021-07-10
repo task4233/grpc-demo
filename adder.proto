@@ -1,0 +1,11 @@
+service Adder {
+	rpc AddOne (AdderRequest) return (AdderResponse) {}
+}
+
+message AdderRequest {
+	int64 num = 1;
+}
+
+message AdderResponse {
+	int64 num = 1;
+}
