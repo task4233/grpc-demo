@@ -42,8 +42,8 @@ func main() {
 	num := &adder.NumMessage{
 		Value: 57,
 	}
-
 	fmt.Printf("[CLIENT] %d\n", num.Value)
+
 	gotNum, err := AddRequest(conn, num)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "failed AddRequest: %s", err.Error())
