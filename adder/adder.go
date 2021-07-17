@@ -1,28 +1,16 @@
 package adder
 
 import (
+	context "context"
 	"fmt"
-	"os"
-
-	"github.com/golang/protobuf/proto"
 )
 
-func main() {
-	num := NumMessage{
-		Value: 57,
-	}
+type AdderServer struct{}
 
-	out, err := proto.Marshal(num)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "failed to encode message: %s", err.Error())
-		os.Exit(1)
-	}
+func (s *AdderServer) Add(ctx context.Context, in *NumMessage) (*NumMessage, error) {
+	fmt.Printf("[SERVER] %d\n", in.Value)
 
-	gotNum := NumMessage{}
-	if err := proto.Unmarshal(out, gotNum); err != nil {
-		fmt.Fprintf(os.Stderr, "failed to decode message: %s", err.Error())
-		os.Exit(1)
-	}
-
-	fmt.Printf("added value: %d\n", gotNum.Value)
+	return &NumMessage{
+		Value: in.Value + 1, // 1を加算
+	}, nil
 }
