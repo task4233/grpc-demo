@@ -1,0 +1,12 @@
+syntax = "proto3";
+package adder;
+
+option go_package = ".";
+
+message NumMessage {
+	string value = 1;
+}
+
+service AdderService {
+	rpc Add(NumMessage) returns (NumMessage) {}
+}
