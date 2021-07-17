@@ -4,7 +4,7 @@ package adder;
 option go_package = ".";
 
 message NumMessage {
-	string value = 1;
+	int64 value = 1;
 }
 
 service AdderService {
