@@ -1,7 +1,7 @@
 package adder
 
 import (
-	context "context"
+	"context"
 	"fmt"
 )
 
